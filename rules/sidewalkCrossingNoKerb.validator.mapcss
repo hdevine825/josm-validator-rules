@@ -1,0 +1,14 @@
+meta
+{
+    title: "Sidewalk and crossing connected without a kerb";
+    version: "";
+    description: "Identifies nodes where sidewalks and crossings meet, but no kerb is mapped";
+    author: "hdevine825";
+    baselanguage: "en";
+}
+/* */
+way[footway=sidewalk] > node { set sidewalk_nodes; }
+way[footway=crossing] > node { set crossing_nodes; }
+node[barrier!=kerb]:in-downloaded-area.sidewalk_nodes.crossing_nodes {
+    throwWarning: tr("{0} should be on the node where {1} and {2} meet", "kerb", "sidewalk", "crossing");
+}

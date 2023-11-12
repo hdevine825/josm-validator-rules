@@ -1,0 +1,14 @@
+meta
+{
+    title: "Crossing way and node with mismatched tags";
+    version: "";
+    description: "Identifies crossing nodes and ways that have mismatched markings and crossing values";
+    author: "hdevine825";
+    baselanguage: "en";
+}
+way[footway=crossing][crossing=traffic_signals] > node[highway=crossing][crossing!=traffic_signals] {
+    throwWarning: tr("Node and way crossing values mismatched)
+}
+node[highway=crossing][crossing=traffic_signals] < way[footway=crossing][crossing!=traffic_signals] {
+    throwWarning: tr("Node and way crossing values mismatched)
+}

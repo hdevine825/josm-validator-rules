@@ -1,0 +1,13 @@
+meta
+{
+    title: "Sidewalk connects directly to road";
+    version: "";
+    description: "Identifies locations where sidewalks meet roads without a crossing way.";
+    author: "hdevine825";
+    baselanguage: "en";
+}
+way[footway=sidewalk] > node { set sidewalk_nodes; }
+way[highway=~/trunk|primary|secondary|tertiary|unclassified|residential/] > node { set road_nodes; }
+node:in-downloaded-area.sidewalk_nodes.road_nodes {
+    throwWarning: tr("Sidewalk way directly connected to road without crossing way");
+}

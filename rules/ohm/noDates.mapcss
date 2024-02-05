@@ -1,0 +1,15 @@
+meta
+{
+    title: "No start or end dates";
+    version: "";
+    description: "Flags elements missing dates that should be dated";
+    author: "hdevine825";
+    baselanguage: "en";
+}
+/* */
+*[!start_date]:in-downloaded-area:tagged {
+    throwWarning: tr("Tagged element missing start_date");
+}
+*[!end_date]:in-downloaded-area:tagged {
+    throwWarning: tr("Tagged element missing end_date");
+}

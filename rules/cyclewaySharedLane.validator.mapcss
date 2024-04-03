@@ -1,0 +1,18 @@
+meta
+{
+    title: "Shared Lane cycleway without cycleway:*:lane=";
+    version: "";
+    description: "";
+    author: "hdevine825";
+    baselanguage: "en";
+}
+/* */
+["cycleway:right"="shared_lane"][!"cycleway:right:lane"]{
+    throwWarning: tr("cycleway:*=shared_lane without cycleway:*:lane=*");
+}
+["cycleway:left"="shared_lane"][!"cycleway:left:lane"]{
+    throwWarning: tr("cycleway:*=shared_lane without cycleway:*:lane=*");
+}
+["cycleway:both"="shared_lane"][!"cycleway:both:lane"]{
+    throwWarning: tr("cycleway:*=shared_lane without cycleway:*:lane=*");
+}
